@@ -1,0 +1,17 @@
+---
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  gather_facts: yes
+
+  tasks:
+    - name: Ensure a package is installed
+      package:
+        name: nginx
+        state: present
+
+    - name: Ensure a service is running
+      service:
+        name: nginx
+        state: started
